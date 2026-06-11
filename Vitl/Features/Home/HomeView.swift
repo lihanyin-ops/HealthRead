@@ -119,7 +119,7 @@ struct HomeView: View {
 
     private var energyCard: some View {
         VitlCard(cornerRadius: 24) {
-            VStack(spacing: 8) {
+            VStack(spacing: 4) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("今日能量")
@@ -151,9 +151,7 @@ struct HomeView: View {
                     tiltX: motion.tiltX,
                     tiltY: motion.tiltY
                 )
-                Text("轻点模型产生气泡 · 移动设备支持陀螺仪")
-                    .font(.system(size: 12))
-                    .foregroundStyle(.secondary)
+                .padding(.top, 2)
             }
             .padding(18)
         }
