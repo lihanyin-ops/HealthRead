@@ -1,0 +1,233 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A00100000000000000000001 /* VitlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000001 /* VitlApp.swift */; };
+		A00100000000000000000002 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000002 /* RootTabView.swift */; };
+		A00100000000000000000003 /* EnergyCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000003 /* EnergyCalculator.swift */; };
+		A00100000000000000000004 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000004 /* HealthKitManager.swift */; };
+		A00100000000000000000005 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000005 /* AIService.swift */; };
+		A00100000000000000000006 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000006 /* StoreKitManager.swift */; };
+		A00100000000000000000007 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000007 /* UserPreferences.swift */; };
+		A00100000000000000000008 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000008 /* HomeView.swift */; };
+		A00100000000000000000009 /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000009 /* InsightView.swift */; };
+		A0010000000000000000000A /* JourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000A /* JourneyView.swift */; };
+		A0010000000000000000000B /* SubscribeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000B /* SubscribeSheet.swift */; };
+		A0010000000000000000000C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000C /* SettingsView.swift */; };
+		A0010000000000000000000D /* Color+Vitl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000D /* Color+Vitl.swift */; };
+		A0010000000000000000000E /* DailyHealthSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000E /* DailyHealthSnapshot.swift */; };
+		A0010000000000000000000F /* VitlMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000F /* VitlMockData.swift */; };
+		A00100000000000000000010 /* LiquidAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000010 /* LiquidAvatarView.swift */; };
+		A00100000000000000000011 /* VitlCommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000011 /* VitlCommonViews.swift */; };
+		A00100000000000000000012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000012 /* Assets.xcassets */; };
+		A00100000000000000000013 /* VitlWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000013 /* VitlWatchApp.swift */; };
+		A00100000000000000000014 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000014 /* WatchContentView.swift */; };
+		A00100000000000000000015 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000007 /* UserPreferences.swift */; };
+		A00100000000000000000016 /* Color+Vitl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000D /* Color+Vitl.swift */; };
+		A00100000000000000000017 /* DailyHealthSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000E /* DailyHealthSnapshot.swift */; };
+		A00100000000000000000018 /* VitlMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000F /* VitlMockData.swift */; };
+		A00100000000000000000019 /* LiquidAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000010 /* LiquidAvatarView.swift */; };
+		A0010000000000000000001A /* VitlCommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000011 /* VitlCommonViews.swift */; };
+		A0010000000000000000001B /* Watch Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000015 /* Watch Assets.xcassets */; };
+		A0010000000000000000001C /* Vitl Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A00200000000000000000019 /* Vitl Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A00C00000000000000000001 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = A00600000000000000000001 /* Project object */; proxyType = 1; remoteGlobalIDString = A00500000000000000000002; remoteInfo = "Vitl Watch App"; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A00E00000000000000000001 /* Embed Watch Content */ = {isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = "$(CONTENTS_FOLDER_PATH)/Watch"; dstSubfolderSpec = 16; files = (A0010000000000000000001C /* Vitl Watch App.app in Embed Watch Content */); name = "Embed Watch Content"; runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A00200000000000000000001 /* VitlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitlApp.swift; sourceTree = "<group>"; };
+		A00200000000000000000002 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		A00200000000000000000003 /* EnergyCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyCalculator.swift; sourceTree = "<group>"; };
+		A00200000000000000000004 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		A00200000000000000000005 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		A00200000000000000000006 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		A00200000000000000000007 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		A00200000000000000000008 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A00200000000000000000009 /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
+		A0020000000000000000000A /* JourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyView.swift; sourceTree = "<group>"; };
+		A0020000000000000000000B /* SubscribeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeSheet.swift; sourceTree = "<group>"; };
+		A0020000000000000000000C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A0020000000000000000000D /* Color+Vitl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Vitl.swift"; sourceTree = "<group>"; };
+		A0020000000000000000000E /* DailyHealthSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHealthSnapshot.swift; sourceTree = "<group>"; };
+		A0020000000000000000000F /* VitlMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitlMockData.swift; sourceTree = "<group>"; };
+		A00200000000000000000010 /* LiquidAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidAvatarView.swift; sourceTree = "<group>"; };
+		A00200000000000000000011 /* VitlCommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitlCommonViews.swift; sourceTree = "<group>"; };
+		A00200000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00200000000000000000013 /* VitlWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitlWatchApp.swift; sourceTree = "<group>"; };
+		A00200000000000000000014 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		A00200000000000000000015 /* Watch Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Watch Assets.xcassets"; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00200000000000000000016 /* App Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "App Info.plist"; path = Info.plist; sourceTree = "<group>"; };
+		A00200000000000000000017 /* Watch Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Watch Info.plist"; path = Info.plist; sourceTree = "<group>"; };
+		A00200000000000000000018 /* Vitl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vitl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00200000000000000000019 /* Vitl Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vitl Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0020000000000000000001A /* Vitl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vitl.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A00300000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A00300000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A00400000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A00400000000000000000003 /* App */,
+				A00400000000000000000004 /* Core */,
+				A00400000000000000000005 /* Features */,
+				A00400000000000000000006 /* Shared */,
+				A00400000000000000000007 /* Watch */,
+				A00400000000000000000008 /* Resources */,
+				A00400000000000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00400000000000000000002 /* Products */ = {isa = PBXGroup; children = (A00200000000000000000018 /* Vitl.app */, A00200000000000000000019 /* Vitl Watch App.app */); name = Products; sourceTree = "<group>"; };
+		A00400000000000000000003 /* App */ = {isa = PBXGroup; children = (A00200000000000000000001, A00200000000000000000002, A00200000000000000000016, A0020000000000000000001A); path = App; sourceTree = "<group>"; };
+		A00400000000000000000004 /* Core */ = {isa = PBXGroup; children = (A00400000000000000000009 /* Health */, A0040000000000000000000A /* AI */, A0040000000000000000000B /* Subscription */, A0040000000000000000000C /* Storage */); path = Core; sourceTree = "<group>"; };
+		A00400000000000000000005 /* Features */ = {isa = PBXGroup; children = (A0040000000000000000000D /* Home */, A0040000000000000000000E /* Insight */, A0040000000000000000000F /* Journey */, A00400000000000000000010 /* Settings */); path = Features; sourceTree = "<group>"; };
+		A00400000000000000000006 /* Shared */ = {isa = PBXGroup; children = (A00400000000000000000011 /* Models */, A00400000000000000000012 /* Views */, A00400000000000000000013 /* Extensions */); path = Shared; sourceTree = "<group>"; };
+		A00400000000000000000007 /* Watch */ = {isa = PBXGroup; children = (A00200000000000000000013, A00200000000000000000014, A00200000000000000000017, A00200000000000000000015); path = Watch; sourceTree = "<group>"; };
+		A00400000000000000000008 /* Resources */ = {isa = PBXGroup; children = (A00200000000000000000012); path = Resources; sourceTree = "<group>"; };
+		A00400000000000000000009 /* Health */ = {isa = PBXGroup; children = (A00200000000000000000003, A00200000000000000000004); path = Health; sourceTree = "<group>"; };
+		A0040000000000000000000A /* AI */ = {isa = PBXGroup; children = (A00200000000000000000005); path = AI; sourceTree = "<group>"; };
+		A0040000000000000000000B /* Subscription */ = {isa = PBXGroup; children = (A00200000000000000000006); path = Subscription; sourceTree = "<group>"; };
+		A0040000000000000000000C /* Storage */ = {isa = PBXGroup; children = (A00200000000000000000007); path = Storage; sourceTree = "<group>"; };
+		A0040000000000000000000D /* Home */ = {isa = PBXGroup; children = (A00200000000000000000008); path = Home; sourceTree = "<group>"; };
+		A0040000000000000000000E /* Insight */ = {isa = PBXGroup; children = (A00200000000000000000009); path = Insight; sourceTree = "<group>"; };
+		A0040000000000000000000F /* Journey */ = {isa = PBXGroup; children = (A0020000000000000000000A); path = Journey; sourceTree = "<group>"; };
+		A00400000000000000000010 /* Settings */ = {isa = PBXGroup; children = (A0020000000000000000000B, A0020000000000000000000C); path = Settings; sourceTree = "<group>"; };
+		A00400000000000000000011 /* Models */ = {isa = PBXGroup; children = (A0020000000000000000000E, A0020000000000000000000F); path = Models; sourceTree = "<group>"; };
+		A00400000000000000000012 /* Views */ = {isa = PBXGroup; children = (A00200000000000000000010, A00200000000000000000011); path = Views; sourceTree = "<group>"; };
+		A00400000000000000000013 /* Extensions */ = {isa = PBXGroup; children = (A0020000000000000000000D); path = Extensions; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A00500000000000000000001 /* Vitl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00A00000000000000000002 /* Build configuration list for PBXNativeTarget "Vitl" */;
+			buildPhases = (A00700000000000000000001 /* Sources */, A00800000000000000000001 /* Resources */, A00300000000000000000001 /* Frameworks */, A00E00000000000000000001 /* Embed Watch Content */, A00B00000000000000000001 /* Clear Extended Attributes */);
+			buildRules = ();
+			dependencies = (A00D00000000000000000001 /* PBXTargetDependency */);
+			name = Vitl;
+			productName = Vitl;
+			productReference = A00200000000000000000018 /* Vitl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A00500000000000000000002 /* Vitl Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00A00000000000000000003 /* Build configuration list for PBXNativeTarget "Vitl Watch App" */;
+			buildPhases = (A00700000000000000000002 /* Sources */, A00800000000000000000002 /* Resources */, A00300000000000000000002 /* Frameworks */, A00B00000000000000000002 /* Clear Extended Attributes */);
+			buildRules = ();
+			dependencies = ();
+			name = "Vitl Watch App";
+			productName = "Vitl Watch App";
+			productReference = A00200000000000000000019 /* Vitl Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXTargetDependency section */
+		A00D00000000000000000001 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A00500000000000000000002 /* Vitl Watch App */; targetProxy = A00C00000000000000000001 /* PBXContainerItemProxy */; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXProject section */
+		A00600000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A00500000000000000000001 = {CreatedOnToolsVersion = 16.0;};
+					A00500000000000000000002 = {CreatedOnToolsVersion = 16.0;};
+				};
+			};
+			buildConfigurationList = A00A00000000000000000001 /* Build configuration list for PBXProject "Vitl" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, zh-Hans, Base);
+			mainGroup = A00400000000000000000001;
+			productRefGroup = A00400000000000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A00500000000000000000001 /* Vitl */, A00500000000000000000002 /* Vitl Watch App */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A00800000000000000000001 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A00100000000000000000012 /* Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+		A00800000000000000000002 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A0010000000000000000001B /* Watch Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A00B00000000000000000001 /* Clear Extended Attributes */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = ();
+			inputPaths = ();
+			name = "Clear Extended Attributes";
+			outputPaths = ();
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xattr -cr \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME\" || true\n";
+		};
+		A00B00000000000000000002 /* Clear Extended Attributes */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = ();
+			inputPaths = ();
+			name = "Clear Extended Attributes";
+			outputPaths = ();
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xattr -cr \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME\" || true\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A00700000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (A00100000000000000000001, A00100000000000000000002, A00100000000000000000003, A00100000000000000000004, A00100000000000000000005, A00100000000000000000006, A00100000000000000000007, A00100000000000000000008, A00100000000000000000009, A0010000000000000000000A, A0010000000000000000000B, A0010000000000000000000C, A0010000000000000000000D, A0010000000000000000000E, A0010000000000000000000F, A00100000000000000000010, A00100000000000000000011);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00700000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (A00100000000000000000013, A00100000000000000000014, A00100000000000000000015, A00100000000000000000016, A00100000000000000000017, A00100000000000000000018, A00100000000000000000019);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A00900000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ANALYZER_NONNULL = YES; CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE; CLANG_CXX_LANGUAGE_STANDARD = "gnu++20"; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_ENABLE_OBJC_WEAK = YES; CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES; CLANG_WARN_BOOL_CONVERSION = YES; CLANG_WARN_COMMA = YES; CLANG_WARN_CONSTANT_CONVERSION = YES; CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES; CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_EMPTY_BODY = YES; CLANG_WARN_ENUM_CONVERSION = YES; CLANG_WARN_INFINITE_RECURSION = YES; CLANG_WARN_INT_CONVERSION = YES; CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES; CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES; CLANG_WARN_OBJC_LITERAL_CONVERSION = YES; CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; CLANG_WARN_RANGE_LOOP_ANALYSIS = YES; CLANG_WARN_STRICT_PROTOTYPES = YES; CLANG_WARN_SUSPICIOUS_MOVE = YES; CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE; CLANG_WARN_UNREACHABLE_CODE = YES; CLANG_WARN__DUPLICATE_METHOD_MATCH = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_DYNAMIC_NO_PIC = NO; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)"); GCC_WARN_64_TO_32_BIT_CONVERSION = YES; GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR; GCC_WARN_UNDECLARED_SELECTOR = YES; GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE; GCC_WARN_UNUSED_FUNCTION = YES; GCC_WARN_UNUSED_VARIABLE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		A00900000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ANALYZER_NONNULL = YES; CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE; CLANG_CXX_LANGUAGE_STANDARD = "gnu++20"; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_ENABLE_OBJC_WEAK = YES; CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES; CLANG_WARN_BOOL_CONVERSION = YES; CLANG_WARN_COMMA = YES; CLANG_WARN_CONSTANT_CONVERSION = YES; CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES; CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_EMPTY_BODY = YES; CLANG_WARN_ENUM_CONVERSION = YES; CLANG_WARN_INFINITE_RECURSION = YES; CLANG_WARN_INT_CONVERSION = YES; CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES; CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES; CLANG_WARN_OBJC_LITERAL_CONVERSION = YES; CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; CLANG_WARN_RANGE_LOOP_ANALYSIS = YES; CLANG_WARN_STRICT_PROTOTYPES = YES; CLANG_WARN_SUSPICIOUS_MOVE = YES; CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE; CLANG_WARN_UNREACHABLE_CODE = YES; CLANG_WARN__DUPLICATE_METHOD_MATCH = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; GCC_WARN_64_TO_32_BIT_CONVERSION = YES; GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR; GCC_WARN_UNDECLARED_SELECTOR = YES; GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE; GCC_WARN_UNUSED_FUNCTION = YES; GCC_WARN_UNUSED_VARIABLE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = NO; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES; }; name = Release; };
+		A00900000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = App/Vitl.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_ASSET_PATHS = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = App/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.vitl.prototype; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		A00900000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = App/Vitl.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_ASSET_PATHS = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = App/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.vitl.prototype; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		A00900000000000000000005 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Watch/Info.plist; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.vitl.prototype.watchkitapp; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = watchos; SKIP_INSTALL = NO; SUPPORTED_PLATFORMS = "watchos watchsimulator"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 4; WATCHOS_DEPLOYMENT_TARGET = 9.0; }; name = Debug; };
+		A00900000000000000000006 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Watch/Info.plist; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.vitl.prototype.watchkitapp; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = watchos; SKIP_INSTALL = NO; SUPPORTED_PLATFORMS = "watchos watchsimulator"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 4; WATCHOS_DEPLOYMENT_TARGET = 9.0; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A00A00000000000000000001 /* Build configuration list for PBXProject "Vitl" */ = {isa = XCConfigurationList; buildConfigurations = (A00900000000000000000001 /* Debug */, A00900000000000000000002 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A00A00000000000000000002 /* Build configuration list for PBXNativeTarget "Vitl" */ = {isa = XCConfigurationList; buildConfigurations = (A00900000000000000000003 /* Debug */, A00900000000000000000004 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A00A00000000000000000003 /* Build configuration list for PBXNativeTarget "Vitl Watch App" */ = {isa = XCConfigurationList; buildConfigurations = (A00900000000000000000005 /* Debug */, A00900000000000000000006 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = A00600000000000000000001 /* Project object */;
+}
