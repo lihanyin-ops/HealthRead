@@ -8,8 +8,6 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.vitl.prototype</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -24,5 +22,7 @@
 	<string>Vitl Watch 需要读取您的健康数据，以便在手表端快速展示今日状态。</string>
 	<key>WKApplication</key>
 	<true/>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>com.hooroo.HealthRead</string>
 </dict>
 </plist>
