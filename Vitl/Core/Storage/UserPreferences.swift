@@ -36,6 +36,7 @@ struct VitlPersistedState: Codable {
     var snapshots: [DailyHealthSnapshot]
     var aiSummary: AIHealthSummary?
     var metricInsights: [String: String]
+    var peerInsights: [DailyPeerInsight]
     var journeyInsight: String?
     var hrZones: [HRZone]
     var updatedAt: Date
@@ -45,10 +46,50 @@ struct VitlPersistedState: Codable {
             snapshots: VitlMockData.snapshots,
             aiSummary: nil,
             metricInsights: [:],
+            peerInsights: [],
             journeyInsight: nil,
             hrZones: HRZone.defaults,
             updatedAt: Date()
         )
+    }
+
+    init(
+        snapshots: [DailyHealthSnapshot],
+        aiSummary: AIHealthSummary?,
+        metricInsights: [String: String],
+        peerInsights: [DailyPeerInsight] = [],
+        journeyInsight: String?,
+        hrZones: [HRZone],
+        updatedAt: Date
+    ) {
+        self.snapshots = snapshots
+        self.aiSummary = aiSummary
+        self.metricInsights = metricInsights
+        self.peerInsights = peerInsights
+        self.journeyInsight = journeyInsight
+        self.hrZones = hrZones
+        self.updatedAt = updatedAt
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case snapshots
+        case aiSummary
+        case metricInsights
+        case peerInsights
+        case journeyInsight
+        case hrZones
+        case updatedAt
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        snapshots = try container.decode([DailyHealthSnapshot].self, forKey: .snapshots)
+        aiSummary = try container.decodeIfPresent(AIHealthSummary.self, forKey: .aiSummary)
+        metricInsights = try container.decodeIfPresent([String: String].self, forKey: .metricInsights) ?? [:]
+        peerInsights = try container.decodeIfPresent([DailyPeerInsight].self, forKey: .peerInsights) ?? []
+        journeyInsight = try container.decodeIfPresent(String.self, forKey: .journeyInsight)
+        hrZones = try container.decodeIfPresent([HRZone].self, forKey: .hrZones) ?? HRZone.defaults
+        updatedAt = try container.decodeIfPresent(Date.self, forKey: .updatedAt) ?? Date()
     }
 }
 
@@ -112,6 +153,21 @@ final class AppStateStore: ObservableObject {
 
     func setMetricInsight(_ insight: String, for key: String) {
         state.metricInsights[key] = insight
+        state.updatedAt = Date()
+        persist()
+    }
+
+    func peerInsight(for snapshot: DailyHealthSnapshot, age: Int, gender: String) -> DailyPeerInsight? {
+        state.peerInsights.first { $0.matches(snapshot: snapshot, age: age, gender: gender) }
+    }
+
+    func setPeerInsight(_ insight: DailyPeerInsight) {
+        state.peerInsights.removeAll { $0.dateKey == insight.dateKey }
+        state.peerInsights.append(insight)
+        state.peerInsights.sort { $0.generatedAt > $1.generatedAt }
+        if state.peerInsights.count > 14 {
+            state.peerInsights = Array(state.peerInsights.prefix(14))
+        }
         state.updatedAt = Date()
         persist()
     }

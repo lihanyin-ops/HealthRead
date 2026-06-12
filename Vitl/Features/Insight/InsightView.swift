@@ -13,14 +13,24 @@ struct InsightView: View {
     @State private var isLoadingAI = false
     @State private var aiError: String?
     @State private var loadingMetricKey: String?
+    @State private var peerInsight: DailyPeerInsight?
 
     private var snapshot: DailyHealthSnapshot { appState.today }
+    private var displayedPeerInsight: DailyPeerInsight {
+        peerInsight ?? PeerBenchmarkService.makeInsight(
+            snapshot: snapshot,
+            history: appState.snapshots,
+            age: preferences.age,
+            gender: preferences.gender
+        )
+    }
 
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 16) {
                 header
                 aiSummaryCard
+                PeerRangeCard(insight: displayedPeerInsight)
                 metricsSection
             }
             .padding(.horizontal, 16)
@@ -32,8 +42,14 @@ struct InsightView: View {
             SubscribeSheet(navigate: navigate)
                 .environmentObject(subscription)
         }
-        .task { await loadAISummaryIfNeeded() }
-        .refreshable { await loadAISummary(force: true) }
+        .task {
+            loadPeerInsightIfNeeded()
+            await loadAISummaryIfNeeded()
+        }
+        .refreshable {
+            loadPeerInsight(force: true)
+            await loadAISummary(force: true)
+        }
     }
 
     private var header: some View {
@@ -152,6 +168,7 @@ struct InsightView: View {
 
     @MainActor
     private func loadAISummary(force: Bool) async {
+        let currentPeerInsight = resolvedPeerInsight()
         guard force || AIConfiguration.apiKey != nil else {
             aiError = "未配置 API Key，当前展示本地示例分析。可在设置页完成 AI 分析接入。"
             return
@@ -165,13 +182,57 @@ struct InsightView: View {
                 history: appState.snapshots,
                 age: preferences.age,
                 height: preferences.height,
-                weight: preferences.weight
+                weight: preferences.weight,
+                peerInsight: currentPeerInsight
             )
             appState.setAISummary(aiSummary)
         } catch {
             aiError = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
         }
         isLoadingAI = false
+    }
+
+    @MainActor
+    private func loadPeerInsightIfNeeded() {
+        loadPeerInsight(force: false)
+    }
+
+    @MainActor
+    private func loadPeerInsight(force: Bool) {
+        if force == false,
+           let cached = appState.peerInsight(for: snapshot, age: preferences.age, gender: preferences.gender) {
+            peerInsight = cached
+            return
+        }
+
+        let generated = PeerBenchmarkService.makeInsight(
+            snapshot: snapshot,
+            history: appState.snapshots,
+            age: preferences.age,
+            gender: preferences.gender
+        )
+        peerInsight = generated
+        appState.setPeerInsight(generated)
+    }
+
+    @MainActor
+    private func resolvedPeerInsight() -> DailyPeerInsight {
+        if let peerInsight {
+            return peerInsight
+        }
+        if let cached = appState.peerInsight(for: snapshot, age: preferences.age, gender: preferences.gender) {
+            peerInsight = cached
+            return cached
+        }
+        let generated = PeerBenchmarkService.makeInsight(
+            snapshot: snapshot,
+            history: appState.snapshots,
+            age: preferences.age,
+            gender: preferences.gender
+        )
+        peerInsight = generated
+        appState.setPeerInsight(generated)
+        return generated
     }
 
     private var metricsSection: some View {
@@ -243,6 +304,155 @@ private struct InsightTextBlock: View {
         .padding(.horizontal, 18)
         .padding(.top, 16)
         .padding(.bottom, 2)
+    }
+}
+
+private struct PeerRangeCard: View {
+    let insight: DailyPeerInsight
+
+    var body: some View {
+        VitlCard(cornerRadius: 22) {
+            VStack(alignment: .leading, spacing: 16) {
+                HStack(spacing: 12) {
+                    Image(systemName: "person.2.wave.2.fill")
+                        .font(.system(size: 17, weight: .bold))
+                        .foregroundStyle(Color.vitlGreen)
+                        .frame(width: 42, height: 42)
+                        .background(Color.vitlGreen.opacity(0.12), in: RoundedRectangle(cornerRadius: 15, style: .continuous))
+
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("同龄健康参考")
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundStyle(Color.vitlInk)
+                        Text("\(insight.ageBand) 岁 · 指南 + 个人基线")
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer(minLength: 8)
+
+                    VStack(alignment: .trailing, spacing: 2) {
+                        Text("\(insight.healthyCount)/\(insight.metrics.count)")
+                            .font(.system(size: 17, weight: .bold))
+                            .foregroundStyle(Color.vitlGreen)
+                        Text("位于范围")
+                            .font(.system(size: 10, weight: .medium))
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                Text(insight.summary)
+                    .font(.system(size: 13))
+                    .foregroundStyle(Color.vitlInk.opacity(0.72))
+                    .lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                VStack(spacing: 12) {
+                    ForEach(insight.metrics) { metric in
+                        PeerMetricRangeRow(metric: metric)
+                    }
+                }
+            }
+            .padding(16)
+        }
+    }
+}
+
+private struct PeerMetricRangeRow: View {
+    let metric: PeerMetricInsight
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text(metric.label)
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(.secondary)
+                Spacer(minLength: 8)
+                Text(metric.formattedValue)
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundStyle(Color.vitlInk)
+                Text(metric.statusLabel)
+                    .font(.system(size: 10, weight: .bold))
+                    .foregroundStyle(metric.status.tint)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(metric.status.tint.opacity(0.12), in: Capsule())
+            }
+
+            PeerRangeBar(metric: metric)
+
+            HStack(spacing: 4) {
+                Text("参考健康范围 \(metric.formattedHealthyRange)")
+                    .font(.system(size: 10, weight: .medium))
+                    .foregroundStyle(.secondary)
+                Spacer(minLength: 8)
+                Text(metric.message)
+                    .font(.system(size: 10))
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+            }
+        }
+        .padding(12)
+        .background(Color.vitlBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+}
+
+private struct PeerRangeBar: View {
+    let metric: PeerMetricInsight
+
+    var body: some View {
+        GeometryReader { proxy in
+            let width = proxy.size.width
+            let start = xPosition(for: metric.normalLow, width: width)
+            let end = xPosition(for: metric.normalHigh, width: width)
+            let marker = xPosition(for: metric.value, width: width)
+
+            ZStack(alignment: .leading) {
+                Capsule()
+                    .fill(Color.black.opacity(0.08))
+                    .frame(height: 8)
+
+                Capsule()
+                    .fill(LinearGradient(colors: [Color.vitlGreen.opacity(0.55), Color.vitlGreen], startPoint: .leading, endPoint: .trailing))
+                    .frame(width: max(end - start, 10), height: 8)
+                    .offset(x: start)
+
+                Capsule()
+                    .fill(metric.status.tint)
+                    .frame(width: 4, height: 18)
+                    .offset(x: min(max(marker - 2, 0), max(width - 4, 0)), y: -5)
+
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 12, height: 12)
+                    .overlay(Circle().stroke(metric.status.tint, lineWidth: 3))
+                    .offset(x: min(max(marker - 6, 0), max(width - 12, 0)), y: -2)
+            }
+            .frame(height: 18)
+        }
+        .frame(height: 18)
+    }
+
+    private func xPosition(for value: Double, width: CGFloat) -> CGFloat {
+        guard metric.high > metric.low else { return width / 2 }
+        let normalized = min(max((value - metric.low) / (metric.high - metric.low), 0), 1)
+        return CGFloat(normalized) * width
+    }
+}
+
+private extension PeerRangeStatus {
+    var tint: Color {
+        switch self {
+        case .below:
+            return Color(red: 84 / 255, green: 137 / 255, blue: 220 / 255)
+        case .healthy, .ideal:
+            return Color.vitlGreen
+        case .above:
+            return Color.vitlOrange
+        case .limited:
+            return Color(red: 170 / 255, green: 120 / 255, blue: 205 / 255)
+        }
     }
 }
 

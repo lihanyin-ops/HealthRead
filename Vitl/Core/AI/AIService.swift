@@ -79,16 +79,18 @@ enum AIKeychain {
 }
 
 enum PromptBuilder {
-    static func buildSummary(from snapshot: DailyHealthSnapshot, history: [DailyHealthSnapshot], age: Int, height: Double, weight: Double) -> String {
+    static func buildSummary(from snapshot: DailyHealthSnapshot, history: [DailyHealthSnapshot], age: Int, height: Double, weight: Double, peerInsight: DailyPeerInsight?) -> String {
         let recent = history.map { item in
             "\(item.weekday)：能量\(item.energyScore)，睡眠\(String(format: "%.1f", item.sleepTotal))h，HRV \(Int(item.hrv))ms，静息心率\(Int(item.restingHeartRate))BPM，步数\(item.steps)，饮水\(item.waterIntake)mL，压力\(item.stressLevel)"
         }.joined(separator: "\n")
+        let peerContext = peerInsight.map(PeerBenchmarkService.promptContext) ?? "同龄健康参考范围：暂无可用结构化结果。"
 
         return """
         你是 Vitl 的健康分析助手，请基于 Apple Health 风格数据生成中文分析。语气专业、温和、可执行，不做医疗诊断，不夸大风险。
 
         用户基础锚点：\(age)岁，\(Int(height))cm，\(Int(weight))kg。
         今日摘要：能量\(snapshot.energyScore)，睡眠\(snapshot.sleepTotal)小时，HRV \(snapshot.hrv)ms，静息心率\(snapshot.restingHeartRate)BPM，步数\(snapshot.steps)，饮水\(snapshot.waterIntake)mL。
+        \(peerContext)
         近7日趋势：
         \(recent)
 
@@ -106,11 +108,11 @@ enum PromptBuilder {
 final class AIService {
     static let shared = AIService()
 
-    func summarize(snapshot: DailyHealthSnapshot, history: [DailyHealthSnapshot] = VitlMockData.snapshots, age: Int, height: Double, weight: Double) async throws -> AIHealthSummary {
+    func summarize(snapshot: DailyHealthSnapshot, history: [DailyHealthSnapshot] = VitlMockData.snapshots, age: Int, height: Double, weight: Double, peerInsight: DailyPeerInsight? = nil) async throws -> AIHealthSummary {
         let content = try await completionContent(
             messages: [
                 ChatMessage(role: "system", content: "你是 Vitl 的中文健康分析助手，只输出用户要求的 JSON。"),
-                ChatMessage(role: "user", content: PromptBuilder.buildSummary(from: snapshot, history: history, age: age, height: height, weight: weight))
+                ChatMessage(role: "user", content: PromptBuilder.buildSummary(from: snapshot, history: history, age: age, height: height, weight: weight, peerInsight: peerInsight))
             ],
             maxTokens: 700
         )

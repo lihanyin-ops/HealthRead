@@ -34,6 +34,8 @@
 		A00100000000000000000019 /* LiquidAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000010 /* LiquidAvatarView.swift */; };
 		A0010000000000000000001B /* Watch Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000015 /* Watch Assets.xcassets */; };
 		A0010000000000000000001C /* Vitl Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A00200000000000000000019 /* Vitl Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A0010000000000000000001D /* PeerBenchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000001B /* PeerBenchmark.swift */; };
+		A0010000000000000000001E /* PeerBenchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000001B /* PeerBenchmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,7 @@
 		A00200000000000000000018 /* Vitl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vitl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00200000000000000000019 /* Vitl Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vitl Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0020000000000000000001A /* Vitl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vitl.entitlements; sourceTree = "<group>"; };
+		A0020000000000000000001B /* PeerBenchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerBenchmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,7 @@
 			children = (
 				A0020000000000000000000E /* DailyHealthSnapshot.swift */,
 				A0020000000000000000000F /* VitlMockData.swift */,
+				A0020000000000000000001B /* PeerBenchmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -434,6 +438,7 @@
 				A0010000000000000000000D /* Color+Vitl.swift in Sources */,
 				A0010000000000000000000E /* DailyHealthSnapshot.swift in Sources */,
 				A0010000000000000000000F /* VitlMockData.swift in Sources */,
+				A0010000000000000000001D /* PeerBenchmark.swift in Sources */,
 				A00100000000000000000010 /* LiquidAvatarView.swift in Sources */,
 				A00100000000000000000011 /* VitlCommonViews.swift in Sources */,
 			);
@@ -449,6 +454,7 @@
 				A00100000000000000000016 /* Color+Vitl.swift in Sources */,
 				A00100000000000000000017 /* DailyHealthSnapshot.swift in Sources */,
 				A00100000000000000000018 /* VitlMockData.swift in Sources */,
+				A0010000000000000000001E /* PeerBenchmark.swift in Sources */,
 				A00100000000000000000019 /* LiquidAvatarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
